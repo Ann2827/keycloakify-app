@@ -1,5 +1,5 @@
 # This is an alternative Dockerfile 
-# that aims to be used in the CI pipeline.
+# that aims to be used in the CI pipeline.
 # In this version we assume that the app have been build
 # prior and archived into a build.tar file present in the context.
 # We have to do that because if we use build-keycloak-theme --external-assets

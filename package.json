@@ -9,12 +9,12 @@
     },
     "scripts": {
         "build": "react-scripts build",
-        "keycloak": "yarn build && build-keycloak-theme",
+        "keycloak": "npm run build && build-keycloak-theme",
         "start": "react-scripts start",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "download-builtin-keycloak-theme": "download-builtin-keycloak-theme 15.0.2",
-        "serve": "yarn keycloak && serve -s build"
+        "serve": "npm run keycloak && serve -s build"
     },
     "author": "Ann Bystrova <ann.bystrova96@mail.ru>",
     "license": "MIT",

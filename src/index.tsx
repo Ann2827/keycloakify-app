@@ -9,7 +9,6 @@ import {
   kcMessages,
   useKcLanguageTag
 } from "keycloakify";
-import { useCssAndCx } from "tss-react";
 import tos_en_url from "./tos_en.md";
 import tos_fr_url from "./tos_fr.md";
 import "./kcMessagesExtension";
@@ -44,8 +43,6 @@ function KcApp() {
 
   const { kcLanguageTag } = useKcLanguageTag();
 
-  // const { css } = useCssAndCx();
-
   //Lazily download the therms and conditions in the appropriate language
   //if we are on the terms.ftl page.
   useEffect(
@@ -73,10 +70,7 @@ function KcApp() {
   return (
       <KcAppBase
         kcContext={kcContext}
-        {...{
-          ...defaultKcProps,
-          // "kcHeaderWrapperClass": css({ "color": "red", "fontFamily": '"Work Sans"' })
-        }}
+        {...{...defaultKcProps}}
       />
   );
 }
