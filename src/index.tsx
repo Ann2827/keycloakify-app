@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { render } from "react-dom";
 import "./index.scss";
-import { App } from "./App";
+// import { App } from "./App";
 import {
-  KcApp as KcAppBase,
+  // KcApp as KcAppBase,
   defaultKcProps,
   getKcContext,
   kcMessages,
@@ -12,7 +12,8 @@ import {
 import { useCssAndCx } from "tss-react";
 import tos_en_url from "./tos_en.md";
 import tos_fr_url from "./tos_fr.md";
-import "./kcMessagesExtension"
+import "./kcMessagesExtension";
+import { KcApp as KcAppBase } from './pages/KcApp';
 
 const { kcContext } = getKcContext({
   /* Uncomment to test th<e login page for development */
@@ -24,11 +25,16 @@ if (kcContext !== undefined) {
 }
 
 render(
-  kcContext === undefined ?
-    <App /> :
-    <KcApp />,
+  kcContext === undefined ? <div>error</div> : <KcApp />,
   document.getElementById("root")
 );
+
+// render(
+//   kcContext === undefined ?
+//     <App /> :
+//     <KcApp />,
+//   document.getElementById("root")
+// );
 
 function KcApp() {
 
@@ -38,7 +44,7 @@ function KcApp() {
 
   const { kcLanguageTag } = useKcLanguageTag();
 
-  const { css } = useCssAndCx();
+  // const { css } = useCssAndCx();
 
   //Lazily download the therms and conditions in the appropriate language
   //if we are on the terms.ftl page.
@@ -69,7 +75,7 @@ function KcApp() {
         kcContext={kcContext}
         {...{
           ...defaultKcProps,
-          "kcHeaderWrapperClass": css({ "color": "red", "fontFamily": '"Work Sans"' })
+          // "kcHeaderWrapperClass": css({ "color": "red", "fontFamily": '"Work Sans"' })
         }}
       />
   );

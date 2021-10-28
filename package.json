@@ -1,11 +1,11 @@
 {
-    "homepage": "https://garronej.github.io/keycloakify-demo-app/",
-    "name": "keycloakify-demo-app",
+    "homepage": "http://localhost:5000/",
+    "name": "keycloakify-app",
     "version": "0.2.17",
     "description": "A demo project for keycloakify",
     "repository": {
         "type": "git",
-        "url": "git://github.com/garronej/keycloakify-demo-app.git"
+        "url": "git://github.com/Ann2827/keycloakify-app.git"
     },
     "scripts": {
         "build": "react-scripts build",
@@ -13,18 +13,22 @@
         "start": "react-scripts start",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "download-builtin-keycloak-theme": "download-builtin-keycloak-theme 15.0.2"
+        "download-builtin-keycloak-theme": "download-builtin-keycloak-theme 15.0.2",
+        "serve": "yarn keycloak && serve -s build"
     },
-    "author": "u/garronej",
+    "author": "Ann Bystrova <ann.bystrova96@mail.ru>",
     "license": "MIT",
     "keywords": [],
     "dependencies": {
-        "keycloakify": "^3.0.0",
-        "tss-react": "^1.1.0",
-        "@emotion/react": "^11.4.1",
-        "powerhooks": "^0.9.6",
+        "@emotion/react": "^11.5.0",
+        "classnames": "^2.3.1",
+        "evt": "^1.10.1",
+        "keycloakify": "^4.2.2",
+        "powerhooks": "^0.11.0",
         "react": "^17.0.1",
-        "react-dom": "^17.0.1"
+        "react-dom": "^17.0.1",
+        "serve": "^12.0.1",
+        "tss-react": "^1.1.0"
     },
     "devDependencies": {
         "@types/node": "^12.0.0",
