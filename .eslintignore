@@ -1,0 +1,9 @@
+# configs
+*.config.js
+webpack.*.js
+
+# build
+build/
+public/
+build_keycloak/
+theme-builder/

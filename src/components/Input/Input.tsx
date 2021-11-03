@@ -3,8 +3,19 @@ import { InputProps } from './Input.types';
 import styles from './Input.module.scss';
 import classNames from 'classnames';
 
-const Input: React.FC<InputProps> = ((props: PropsWithChildren<InputProps>) => {
-  const { tabIndex, name, type, value, onChange, placeholder, disabled, onFocus = () => {}, onBlur = () => {}, id = ''  } = props;
+const Input: React.FC<InputProps> = (props: PropsWithChildren<InputProps>) => {
+  const {
+    tabIndex,
+    name,
+    type,
+    value,
+    onChange,
+    placeholder,
+    disabled,
+    onFocus = () => {},
+    onBlur = () => {},
+    id = '',
+  } = props;
 
   const [isFocused, setIsFocused] = useState(false);
   const handleFocus = (event: React.FocusEvent<HTMLInputElement>): void => {
@@ -15,6 +26,9 @@ const Input: React.FC<InputProps> = ((props: PropsWithChildren<InputProps>) => {
     onBlur?.(event);
     setIsFocused(false);
   };
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    onChange?.(event.currentTarget.value);
+  };
 
   const rootClass = classNames(styles.root);
   const placeholderClass = classNames(styles.placeholder, {
@@ -22,7 +36,13 @@ const Input: React.FC<InputProps> = ((props: PropsWithChildren<InputProps>) => {
   });
   const inputClass = classNames(styles.input);
 
-  const otherProps: { tabIndex?: number; name?: string; id?: string; value?: InputProps['value']; onChange?: InputProps['onChange'] } = {};
+  const otherProps: {
+    tabIndex?: number;
+    name?: string;
+    id?: string;
+    value?: InputProps['value'];
+    onChange?: InputProps['onChange'];
+  } = {};
   if (id) otherProps.id = id;
   if (name) otherProps.name = name;
   if (tabIndex) otherProps.tabIndex = tabIndex;
@@ -37,14 +57,14 @@ const Input: React.FC<InputProps> = ((props: PropsWithChildren<InputProps>) => {
         className={inputClass}
         type={type}
         value={value}
-        onChange={onChange}
+        onChange={handleChange}
         disabled={disabled}
         onFocus={handleFocus}
         onBlur={handleBlur}
       />
     </div>
   );
-});
+};
 Input.defaultProps = {
   placeholder: '',
   disabled: false,
