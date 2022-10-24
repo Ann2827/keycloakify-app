@@ -1,3 +1,1 @@
-import LoginOtp from './LoginOtp';
-
-export default LoginOtp;
+export { default } from './LoginOtp';

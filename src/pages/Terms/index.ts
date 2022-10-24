@@ -1,3 +1,1 @@
-import Terms from './Terms';
-
-export default Terms;
+export { default } from './Terms';

@@ -1,1 +1,5 @@
 node_modules/
+build/
+build_keycloak/
+build_theme1/
+build_theme2/

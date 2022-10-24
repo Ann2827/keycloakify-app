@@ -1,12 +1,10 @@
 import React, { useEffect, Fragment, FC, ComponentClass } from 'react';
 import type { KcProps, KcContextBase, Attribute } from 'keycloakify';
-import { useKcMessage, useFormValidationSlice } from 'keycloakify';
+import { useFormValidationSlice, getMsg } from 'keycloakify';
 import { useCssAndCx } from 'tss-react';
 import { useCallbackFactory } from 'powerhooks/useCallbackFactory';
 
-type ReactComponent<Props extends Record<string, unknown>> =
-  | ((props: Props) => ReturnType<FC>)
-  | ComponentClass<Props>;
+type ReactComponent<Props extends Record<string, unknown>> = ((props: Props) => ReturnType<FC>) | ComponentClass<Props>;
 type UserProfileFormFieldsProps = { kcContext: KcContextBase.RegisterUserProfile } & KcProps &
   Partial<Record<'BeforeField' | 'AfterField', ReactComponent<{ attribute: Attribute }>>> & {
     onIsFormSubmittableValueChange: (isFormSubmittable: boolean) => void;
@@ -14,7 +12,7 @@ type UserProfileFormFieldsProps = { kcContext: KcContextBase.RegisterUserProfile
 const UserProfileFormFields = ({ kcContext, onIsFormSubmittableValueChange, ...props }: UserProfileFormFieldsProps) => {
   const { cx, css } = useCssAndCx();
 
-  const { advancedMsg } = useKcMessage();
+  const { advancedMsg } = getMsg(kcContext);
 
   const {
     formValidationState: { fieldStateByAttributeName, isFormSubmittable },

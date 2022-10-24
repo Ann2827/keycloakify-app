@@ -16,7 +16,6 @@
   "extends": [
     "eslint:recommended",
     "plugin:unicorn/recommended",
-    "plugin:jest/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
@@ -28,12 +27,10 @@
   "plugins": [
     "unicorn",
     "import",
-    "jest",
     "@typescript-eslint",
     "prettier"
   ],
   "settings": {
-//    "import/resolver": "webpack",
     "import/resolver": {
       "webpack": {
         "config": {
@@ -49,7 +46,6 @@
     }
   },
   "rules": {
-    // disable unicorn plugin rules
     "unicorn/no-null": 0,
     "unicorn/prevent-abbreviations": 0,
     "unicorn/filename-case": 0,
@@ -57,9 +53,10 @@
     "unicorn/no-array-for-each": 0,
     "prettier/prettier": "error",
     "@typescript-eslint/no-unused-vars": [ 2, { "args": "none" } ],
-//    "@typescript-eslint/no-unused-vars": 0,
     "react/no-array-index-key": 0,
+    "react/jsx-filename-extension": [0],
     "unicorn/prefer-node-protocol": 0,
-    "unicorn/consistent-destructuring": 0
+    "unicorn/consistent-destructuring": 0,
+    "@typescript-eslint/ban-ts-comment": 0
   }
 }

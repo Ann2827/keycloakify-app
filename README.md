@@ -1,42 +1,44 @@
-# Authorization Application
+# Keycloakify Application
 
 Страницы авторизации в keycloak. Приложение реализовано с помощью библиотеки keycloakify,
 которая генерирует из react-приложения ftl шаблоны.
 
 ## Runbook
 
-### Сборка
+### Build
 
-- `npm run build` - собирает react-приложение
-- `npm run keycloak` - собирает приложение и тему
+- `npm run build:themes` - builds two (all) themes in folders `build_theme1` and `build_theme2`
+- `npm run build:demo` - builds demo stand in folder `build_demo`
+- `npm run build:theme1` - builds theme1 in folder `build_keycloak` (to run keycloak locally)
+- `npm run build:theme2` - builds theme2 in folder `build_keycloak` (to run keycloak locally)
 
-1. Установка пакетов `npm install`
-2. Собрать тему `npm run keycloak`
+1. Installing Packages `npm install`
+2. Build themes `npm run build:themes`
+3. Build demo stand `npm run build:demo`
 
-Собранные шаблоны находятся по адресу `build_keycloak/src/main/resources/theme/{название_темы}`.
+The built theme templates are located at: `{build_name}/src/main/resources/theme/{theme_name}`.
 
-### Запуск
+### Start
 
-- `npm run start` - только react-приложение
-- `npm run keycloak` и `` - полноценный запуск
+- `npm run start:demo` - launches react demo stand.
+- `npm run build:theme1` -> follow the instructions in the console after build to launch the theme in keycloak.
+- `npm run build:theme2` -> follow the instructions in the console after build to launch the theme in keycloak.
 
-### Тесты
+### Lints
 
-...
+- `npm run lint` - Eslint
+- `npm run lint:fix` - Eslint autofix
 
-### Линтеры
+### Debug
 
-- `npm run lint:js` / `npm run fix:js` / `npm run lint:js -- --quiet` - Eslint
-- `npm run lint:styles` / `npm run fix:styles` - Stylelint
-- `npm run lint:md` / `npm run fix:md` - Markdownlint
+Helps to find broken keys in `.data_model`.
 
-### Ссылки
+- `npm run debug` - adds debug ftl to all templates of a certain theme (without --file=...) or only to 1 file (with --file=login.ftl)
 
-#### Local
+### Links
 
 - react node - <http://localhost:3000>
-- react nginx - <http://localhost:5000>
-- keycloak - <http://localhost:8080>
+- keycloak - <http://localhost:8080/admin>
 - realm - <http://localhost:8080/auth/realms/myrealm/account>
 
 ## System requirements
@@ -45,7 +47,9 @@
 
 ## Contribution
 
-### Описание архитектурных особенностей репозитория
+### Description of the repository's architectural features
 
-...
+If `process.env.REACT_APP_MODE === MODE_DEMO` then a multi-page application is being built, else standard keycloakify is being built.
+
+
 

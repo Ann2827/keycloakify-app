@@ -46,8 +46,8 @@ const Input: React.FC<InputProps> = (props: PropsWithChildren<InputProps>) => {
   if (id) otherProps.id = id;
   if (name) otherProps.name = name;
   if (tabIndex) otherProps.tabIndex = tabIndex;
-  // if (value) otherProps.value = value;
-  // if (onChange) otherProps.onChange = onChange;
+  if (value) otherProps.value = value;
+  if (onChange) otherProps.onChange = onChange;
 
   return (
     <div className={rootClass}>

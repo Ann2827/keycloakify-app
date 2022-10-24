@@ -1,3 +1,1 @@
-import LoginIdpLinkConfirm from './LoginIdpLinkConfirm';
-
-export default LoginIdpLinkConfirm;
+export { default } from './LoginIdpLinkConfirm';

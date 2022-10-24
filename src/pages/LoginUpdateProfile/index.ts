@@ -1,3 +1,1 @@
-import LoginUpdateProfile from './LoginUpdateProfile';
-
-export default LoginUpdateProfile;
+export { default } from './LoginUpdateProfile';

@@ -1,3 +1,1 @@
-import LoginVerifyEmail from './LoginVerifyEmail';
-
-export default LoginVerifyEmail;
+export { default } from './LoginVerifyEmail';
