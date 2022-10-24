@@ -1,4 +1,4 @@
-import { ChangeEventHandler, FocusEvent } from 'react';
+import { FocusEvent } from 'react';
 
 export interface InputProps {
   id?: string;

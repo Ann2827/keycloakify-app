@@ -6,4 +6,5 @@ webpack.*.js
 build/
 public/
 build_keycloak/
-theme-builder/
+build_theme1/
+build_theme2/

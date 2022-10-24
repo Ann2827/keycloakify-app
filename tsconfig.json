@@ -22,9 +22,10 @@
     "sourceMap": true,
     "inlineSources": true,
     "sourceRoot": "src/",
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "plugins": [{"name": "typescript-plugin-css-modules"}]
   },
   "include": [
-    "src", "theme-builder"
+    "src"
   ]
 }

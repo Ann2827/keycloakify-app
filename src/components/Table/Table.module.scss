@@ -1,0 +1,72 @@
+.scrollContainer {
+  overflow-x: auto;
+}
+
+.table {
+  min-width: 900px;
+  background-color: #fff;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+
+  .columnsWrapper {
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(auto, 1fr);
+    align-items: center;
+    background-color: #e5e5e5;
+    font-weight: 500;
+    line-height: 100%;
+
+    .column {
+      padding: 16px 0 16px 16px;
+      display: flex;
+      align-items: center;
+
+      .columnName {
+        font-weight: 500;
+        word-break: normal;
+        flex-grow: 0;
+        flex-basis: 0;
+      }
+    }
+  }
+
+  .rowsWrapper {
+    .row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border-bottom: 1px solid lightgray;
+
+      &:last-child {
+        border-bottom: unset;
+      }
+
+      .rowElement {
+        padding: 16px 0 16px 16px;
+        flex-basis: 0;
+        flex-grow: 1;
+
+        &_url {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+    .noRowsPlaceholder {
+      height: 160px;
+      display: flex;
+    }
+  }
+}
+
+.tooltipWrapper {
+  position: relative;
+}
+
+.infoIcon {
+  margin-left: 10px;
+}

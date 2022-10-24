@@ -1,12 +1,30 @@
 import React from 'react';
 import Template from '../../modules/Template';
 import type { KcProps, KcContextBase } from 'keycloakify';
-import { useKcMessage } from 'keycloakify';
+import { getMsg } from 'keycloakify';
+import { ThemeTypes } from '../../constants/theme';
 
-const Error = ({ kcContext, ...props }: { kcContext: KcContextBase.Error } & KcProps) => {
-  const { msg } = useKcMessage();
-
+const Error = ({
+  kcContext,
+  theme,
+  ...props
+}: { kcContext: KcContextBase.Error } & KcProps & { theme: ThemeTypes }) => {
   const { message, client } = kcContext;
+
+  const { msg } = getMsg(kcContext);
+
+  const formNode = (
+    <div id='kc-error-message'>
+      <p className='instruction'>{message.summary}</p>
+      {client !== undefined && client.baseUrl !== undefined && (
+        <p>
+          <a id='backToApplication' href={client.baseUrl}>
+            {msg('backToApplication')}
+          </a>
+        </p>
+      )}
+    </div>
+  );
 
   return (
     <Template
@@ -14,18 +32,8 @@ const Error = ({ kcContext, ...props }: { kcContext: KcContextBase.Error } & KcP
       doFetchDefaultThemeResources={true}
       displayMessage={false}
       headerNode={msg('errorTitle')}
-      formNode={
-        <div id='kc-error-message'>
-          <p className='instruction'>{message.summary}</p>
-          {client !== undefined && client.baseUrl !== undefined && (
-            <p>
-              <a id='backToApplication' href={client.baseUrl}>
-                {msg('backToApplication')}
-              </a>
-            </p>
-          )}
-        </div>
-      }
+      formNode={formNode}
+      theme={theme}
     />
   );
 };

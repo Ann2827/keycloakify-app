@@ -1,3 +1,1 @@
-import RegisterUserProfile from './RegisterUserProfile';
-
-export default RegisterUserProfile;
+export { default } from './RegisterUserProfile';

@@ -1,3 +1,1 @@
-import LoginResetPassword from './LoginResetPassword';
-
-export default LoginResetPassword;
+export { default } from './LoginResetPassword';
